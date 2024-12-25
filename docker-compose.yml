@@ -1,0 +1,13 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    container_name: delivery_app_ppawLab5
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgresppaw
+      - POSTGRES_DB=delivery
+    ports:
+      - 5433:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data

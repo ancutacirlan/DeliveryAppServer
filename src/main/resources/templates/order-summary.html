@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Summary</title>
+</head>
+<body>
+<h1>Order Summary</h1>
+
+<p>Total Price: <span th:text="${totalPrice}"></span> LEI</p>
+
+<div th:if="${subscriptionExpired}">
+    <p>Your subscription has expired! Please renew your subscription or switch to the free plan.</p>
+    <a href="/renew-subscription">Renew Subscription</a> | <a href="/switch-to-free-plan">Switch to Free Plan</a>
+</div>
+
+<h2>Order Details</h2>
+<p>Restaurant: <span th:text="${orderRequest.restaurantId}"></span></p>
+<p>Products:</p>
+<ul>
+    <li th:each="entry : ${orderRequest.products}">
+        <span th:text="${entry.value}"></span> x Product ID: <span th:text="${entry.key}"></span>
+    </li>
+</ul>
+
+<p>Mentions: <span th:text="${orderRequest.mentions}"></span></p>
+
+</body>
+</html>

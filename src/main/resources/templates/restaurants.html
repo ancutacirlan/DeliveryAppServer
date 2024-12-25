@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Restaurante și Meniuri</title>
+    <script>
+        function selectRestaurant(restaurantName) {
+            // Afișăm restaurantul selectat
+            document.getElementById('selectedRestaurantName').textContent = restaurantName;
+        }
+
+        function deselectRestaurant() {
+            // Resetăm selecția
+            document.getElementById('selectedRestaurantName').textContent = '';
+        }
+    </script>
+</head>
+<body>
+<h1>Restaurante și Meniuri</h1>
+
+<!-- Lista de Restaurante -->
+<div id="restaurantList">
+    <h2>Selectează un restaurant</h2>
+    <ul>
+        <li th:each="restaurantMenuDTO : ${restaurantMenuDTOs}">
+            <span th:text="${restaurantMenuDTO.restaurantName}"></span>
+
+            <!-- Butonul pentru selecția restaurantului -->
+            <button type="button"
+                    th:data-name="${restaurantMenuDTO.restaurantName}"
+                    th:data-id="${restaurantMenuDTO.restaurantId}"
+                    onclick="selectRestaurant(this.dataset.name)">
+                Selectează
+            </button>
+
+            <!-- Meniuri pentru acest restaurant -->
+            <ul>
+                <li th:each="menu : ${restaurantMenuDTO.menus}">
+                    <span th:text="${menu.name}"></span> -
+                    <span th:text="${menu.price} + ' Lei'"></span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<!-- Restaurant Selectat -->
+<div id="selectedRestaurant" style="display: none;">
+    <h2>Restaurant: <span id="selectedRestaurantName"></span></h2>
+    <button type="button" onclick="deselectRestaurant()">Deselectează restaurantul</button>
+</div>
+
+</body>
+</html>

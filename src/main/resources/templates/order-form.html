@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Place Your Order</title>
+</head>
+<body>
+<h1>Place Your Order</h1>
+
+<!--<form th:action="@{/place-order}" th:object="${orderRequest}" method="post">-->
+<!--    <label for="restaurantId">Select Restaurant:</label>-->
+<!--    <select id="restaurantId" name="restaurantId" th:field="*{restaurantId}">-->
+<!--        <option th:each="restaurant : ${restaurants}"-->
+<!--                th:value="${restaurant.id}"-->
+<!--                th:text="${restaurant.name}">Restaurant</option>-->
+<!--    </select>-->
+
+<!--    <div th:if="${subscriptionExpired}">-->
+<!--        <p>Your subscription has expired. Transport fee is included in the total price.</p>-->
+<!--    </div>-->
+
+<!--    <div th:each="menu : ${menus}">-->
+<!--        <h3 th:text="${menu.name}"></h3>-->
+<!--        <p th:text="${menu.description}"></p>-->
+<!--        <p>Price: <span th:text="${menu.price}"></span> LEI</p>-->
+<!--        <input type="number" th:field="*{products[${menu.id}]}"/>-->
+<!--    </div>-->
+
+<!--    <label for="mentions">Additional Mentions:</label>-->
+<!--    <textarea id="mentions" name="mentions" th:field="*{mentions}"></textarea>-->
+
+<!--    <button type="submit">Place Order</button>-->
+<!--</form>-->
+</body>
+</html>

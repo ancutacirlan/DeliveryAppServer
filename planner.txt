@@ -1,0 +1,12 @@
+- get pe meniuri upa restaurante ok
+- get pe subscriptii  ok
+- get pe subcriptiile unui utilizator ok
+- post pentru subscriptia unui utilizator ok
+- delete pentru subscriptia unui utilizator ok
+
+- post pentru comanda
+- update pentru comanda
+- delete pentru comnda
+- get all pe toate comenzile
+
+
