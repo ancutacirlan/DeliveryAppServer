@@ -1,34 +1,34 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Place Your Order</title>
-</head>
-<body>
-<h1>Place Your Order</h1>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Place Your Order</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Place Your Order</h1>-->
 
-<!--<form th:action="@{/place-order}" th:object="${orderRequest}" method="post">-->
-<!--    <label for="restaurantId">Select Restaurant:</label>-->
-<!--    <select id="restaurantId" name="restaurantId" th:field="*{restaurantId}">-->
-<!--        <option th:each="restaurant : ${restaurants}"-->
-<!--                th:value="${restaurant.id}"-->
-<!--                th:text="${restaurant.name}">Restaurant</option>-->
-<!--    </select>-->
+<!--&lt;!&ndash;<form th:action="@{/place-order}" th:object="${orderRequest}" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;    <label for="restaurantId">Select Restaurant:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <select id="restaurantId" name="restaurantId" th:field="*{restaurantId}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <option th:each="restaurant : ${restaurants}"&ndash;&gt;-->
+<!--&lt;!&ndash;                th:value="${restaurant.id}"&ndash;&gt;-->
+<!--&lt;!&ndash;                th:text="${restaurant.name}">Restaurant</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    </select>&ndash;&gt;-->
 
-<!--    <div th:if="${subscriptionExpired}">-->
-<!--        <p>Your subscription has expired. Transport fee is included in the total price.</p>-->
-<!--    </div>-->
+<!--&lt;!&ndash;    <div th:if="${subscriptionExpired}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Your subscription has expired. Transport fee is included in the total price.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
 
-<!--    <div th:each="menu : ${menus}">-->
-<!--        <h3 th:text="${menu.name}"></h3>-->
-<!--        <p th:text="${menu.description}"></p>-->
-<!--        <p>Price: <span th:text="${menu.price}"></span> LEI</p>-->
-<!--        <input type="number" th:field="*{products[${menu.id}]}"/>-->
-<!--    </div>-->
+<!--&lt;!&ndash;    <div th:each="menu : ${menus}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h3 th:text="${menu.name}"></h3>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p th:text="${menu.description}"></p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p>Price: <span th:text="${menu.price}"></span> LEI</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="number" th:field="*{products[${menu.id}]}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
 
-<!--    <label for="mentions">Additional Mentions:</label>-->
-<!--    <textarea id="mentions" name="mentions" th:field="*{mentions}"></textarea>-->
+<!--&lt;!&ndash;    <label for="mentions">Additional Mentions:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <textarea id="mentions" name="mentions" th:field="*{mentions}"></textarea>&ndash;&gt;-->
 
-<!--    <button type="submit">Place Order</button>-->
-<!--</form>-->
-</body>
-</html>
+<!--&lt;!&ndash;    <button type="submit">Place Order</button>&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->

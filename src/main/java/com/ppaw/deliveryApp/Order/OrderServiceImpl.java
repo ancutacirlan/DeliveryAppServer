@@ -1,5 +1,6 @@
 package com.ppaw.deliveryApp.Order;
 
+import com.ppaw.deliveryApp.Exceptions.NotFoundException;
 import com.ppaw.deliveryApp.Menu.Menu;
 import com.ppaw.deliveryApp.Menu.MenuRepository;
 import com.ppaw.deliveryApp.OrderClient.OrderClient;
@@ -12,7 +13,6 @@ import com.ppaw.deliveryApp.Subscription.TypeSubscription;
 import com.ppaw.deliveryApp.User.UserService;
 import com.ppaw.deliveryApp.User.Users;
 import com.ppaw.deliveryApp.UserSubscription.UserSubscription;
-import javassist.NotFoundException;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;

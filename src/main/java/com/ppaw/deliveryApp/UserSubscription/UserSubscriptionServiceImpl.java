@@ -1,10 +1,10 @@
 package com.ppaw.deliveryApp.UserSubscription;
 
 
+import com.ppaw.deliveryApp.Exceptions.NotFoundException;
 import com.ppaw.deliveryApp.Subscription.SubscriptionRepository;
 import com.ppaw.deliveryApp.User.UserService;
 import com.ppaw.deliveryApp.User.Users;
-import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;

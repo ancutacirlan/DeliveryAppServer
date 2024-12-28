@@ -1,10 +1,10 @@
 package com.ppaw.deliveryApp.Exceptions;
 
-public class InvoiceNotFoundException extends RuntimeException {
+public class NotFoundException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public InvoiceNotFoundException(String customMessage) {
+    public NotFoundException(String customMessage) {
         super(customMessage);
     }
 }

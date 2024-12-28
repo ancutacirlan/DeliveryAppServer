@@ -1,8 +1,9 @@
 package com.ppaw.deliveryApp.User;
 
 
+import com.ppaw.deliveryApp.Exceptions.NotFoundException;
 import com.ppaw.deliveryApp.Utils.Role;
-import com.ppaw.deliveryApp.Exceptions.InvoiceNotFoundException;
+import com.ppaw.deliveryApp.Exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
         if (opt.isPresent()) {
             return opt.get();
         } else {
-            throw new InvoiceNotFoundException("User with Id : " + id + " Not Found");
+            throw new NotFoundException("User with Id : " + id + " Not Found");
         }
     }
 

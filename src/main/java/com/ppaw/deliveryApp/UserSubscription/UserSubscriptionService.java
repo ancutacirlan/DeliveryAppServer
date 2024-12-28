@@ -1,7 +1,7 @@
 package com.ppaw.deliveryApp.UserSubscription;
 
 
-import javassist.NotFoundException;
+import com.ppaw.deliveryApp.Exceptions.NotFoundException;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,6 +1,6 @@
 package com.ppaw.deliveryApp.Order;
 
-import javassist.NotFoundException;
+import com.ppaw.deliveryApp.Exceptions.NotFoundException;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.stereotype.Service;
 

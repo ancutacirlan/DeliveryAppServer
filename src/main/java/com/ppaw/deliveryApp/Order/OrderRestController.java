@@ -1,7 +1,7 @@
 package com.ppaw.deliveryApp.Order;
 
-import com.ppaw.deliveryApp.OrderClient.OrderClientDto;
-import javassist.NotFoundException;
+
+import com.ppaw.deliveryApp.Exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
