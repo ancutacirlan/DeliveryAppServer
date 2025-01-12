@@ -1,15 +1,9 @@
 -- Populează tabela users
 INSERT INTO users (id, address, email, name, phone_no, role) VALUES
-                                                                 ('00000000-0000-0000-0000-000000000001', '123 Main St', 'client1@example.com', 'Client 1', '555-0100', 0),
-                                                                 ('00000000-0000-0000-0000-000000000002', '456 Elm St', 'client2@example.com', 'Client 2', '555-0200', 0),
-                                                                 ('00000000-0000-0000-0000-000000000003', '789 Oak St', 'delivery1@example.com', 'Delivery 1', '555-0300', 1),
-                                                                 ('00000000-0000-0000-0000-000000000004', '147 Pine St', 'delivery2@example.com', 'Delivery 2', '555-0400', 1),
+
                                                                  ('00000000-0000-0000-0000-000000000005', '369 Maple St', 'restaurant1@example.com', 'Restaurant 1', '555-0500', 2),
-                                                                 ('00000000-0000-0000-0000-000000000006', '852 Cedar St', 'restaurant2@example.com', 'Restaurant 2', '555-0600', 2),
-                                                                 ('00000000-0000-0000-0000-000000000007', '963 Spruce St', 'client3@example.com', 'Client 3', '555-0700', 0),
-                                                                 ('00000000-0000-0000-0000-000000000008', '741 Fir St', 'delivery3@example.com', 'Delivery 3', '555-0800', 1),
-                                                                 ('00000000-0000-0000-0000-000000000009', '258 Birch St', 'client4@example.com', 'Client 4', '555-0900', 0),
-                                                                 ('00000000-0000-0000-0000-000000000010', '369 Willow St', 'client5@example.com', 'Client 5', '555-1000', 0);
+                                                                 ('00000000-0000-0000-0000-000000000006', '852 Cedar St', 'restaurant2@example.com', 'Restaurant 2', '555-0600', 2)
+
 
 -- Populează tabela ingredient
 INSERT INTO ingredient (id, name) VALUES
@@ -51,10 +45,10 @@ INSERT INTO menu_ingredient (menu_id, ingredient_id) VALUES
                                                          ('00000000-0000-0000-0000-000000000205', '00000000-0000-0000-0000-000000000106');
 
 -- Populează tabela subscription
-INSERT INTO subscription (id, name, description, price, tip) VALUES
-                                                                 ('00000000-0000-0000-0000-000000000301', 'Basic Plan', 'Pentru orice comanda, transportul este 20 de lei', 0, 0),
-                                                                 ('00000000-0000-0000-0000-000000000302', 'Premium Plan', 'Pentru orice comanda de peste 40 de lei, transportul este gratuit.', 150, 1),
-                                                                 ('00000000-0000-0000-0000-000000000303', 'Gold Plan', 'Pentru orice comanda de peste 50 de lei, transportul este gratuit.', 500, 2);
+INSERT INTO subscription (id, name, description, price, type_subscription, transport_price, minimum_for_free_transport) VALUES
+                                                                 ('00000000-0000-0000-0000-000000000301', 'BASIC_PLAN', 'Pentru orice comanda, transportul este 20 de lei.', 0, 'FREE', 20, 0),
+                                                                 ('00000000-0000-0000-0000-000000000302', 'PREMIUM_PLAN', 'Pentru orice comanda de peste 50 de lei, transportul este gratuit. In caz contrar, se percepe o taxa de 25 de lei pentru transport.', 150, 'MONTHLY', 25, 50),
+                                                                 ('00000000-0000-0000-0000-000000000303', 'GOLD_PLAN', 'Pentru orice comanda de peste 70 de lei, transportul este gratuit. In caz contrar, se percepe o taxa de 30 de lei pentru transport.', 500, 'ANNUAL', 30, 70);
 
 
 -- Refacere user_subscription conform specificațiilor

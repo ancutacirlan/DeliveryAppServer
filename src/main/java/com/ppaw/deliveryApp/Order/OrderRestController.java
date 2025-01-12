@@ -29,7 +29,6 @@ public class OrderRestController {
 
     @PostMapping(path = "/calculate/total/price", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderPricesDto> calculateTotalPrice(@RequestBody ListOfProductsDto dto) {
-        System.out.println("DTOOOOO:"+dto);
         return ResponseEntity.ok(service.calculateTotalPrice(dto));
     }
 

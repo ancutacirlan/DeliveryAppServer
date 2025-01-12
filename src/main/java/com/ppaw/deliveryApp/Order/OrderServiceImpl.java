@@ -31,7 +31,8 @@ import java.util.stream.Collectors;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    private static final Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
+    private static final Logger logger =
+            LoggerFactory.getLogger(OrderServiceImpl.class);
 
     private final OrderRepository orderRepository;
     private final UserService userService;
@@ -118,8 +119,10 @@ public class OrderServiceImpl implements OrderService {
         Orders order = orderRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Order not found with ID: " + id));
 
-        if (order.getStatus() == Status.IN_PREPARATION || order.getStatus() == Status.OUT_FOR_DELIVERY) {
-            throw new Exception("The order cannot be deleted because it is either in preparation or ready for delivery.");
+        if (order.getStatus() == Status.IN_PREPARATION ||
+                order.getStatus() == Status.OUT_FOR_DELIVERY) {
+            throw new Exception("The order cannot be deleted because it is " +
+                    "either in preparation or ready for delivery.");
         }
 
         order.setIsDeleted(true);
@@ -173,9 +176,15 @@ public class OrderServiceImpl implements OrderService {
         return user.getSubscriptions().stream()
                 .filter(subscription ->
                         subscription.getSubscription() != null &&
-                                !TypeSubscription.FREE.toString().equals(subscription.getSubscription().getTypeSubscription().toString()) &&
-                                (today.isEqual(subscription.getStartDate()) || today.isAfter(subscription.getStartDate())) &&
-                                (today.isEqual(subscription.getEndDate()) || today.isBefore(subscription.getEndDate()))
+                                !TypeSubscription.FREE.toString().equals
+                                        (subscription.getSubscription().getTypeSubscription().toString()) &&
+                                (today.isEqual(subscription.getStartDate()) ||
+                                        today.isAfter(subscription.getStartDate())
+                                )
+                                &&
+                                (today.isEqual(subscription.getEndDate()) ||
+                                        today.isBefore(subscription.getEndDate())
+                                )
                 )
                 .map(UserSubscription::getSubscription)
                 .findFirst();

@@ -13,6 +13,7 @@ public interface UserSubscriptionService {
     UserSubscriptionDto create(CreateUserSubscriptionDto createUserSubscriptionDto);
 
     UserSubscriptionDto update(UUID id, UserSubscriptionDto userSubscription) throws NotFoundException;
+    UserSubscriptionDto updateToExpire(UUID id) throws NotFoundException;
 
     UserSubscriptionDto getById(UUID id) throws NotFoundException;
 

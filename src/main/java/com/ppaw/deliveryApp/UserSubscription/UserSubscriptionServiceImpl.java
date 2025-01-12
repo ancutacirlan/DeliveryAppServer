@@ -16,6 +16,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -57,14 +58,15 @@ public class UserSubscriptionServiceImpl implements UserSubscriptionService {
     @Override
     @CachePut(value = "userSubscriptions", key = "#result.id")
     public UserSubscriptionDto create(CreateUserSubscriptionDto userSubscription) {
+
         var subscription = subscriptionRepository.getSubscriptionById(userSubscription.getSubscriptionId());
+
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         Users user = userService.findByEmail(email);
 
         var newSubscription = new UserSubscription();
         newSubscription.setUser(user);
         newSubscription.setSubscription(subscription);
-        //newSubscription.setIsActive(true);
         newSubscription.setStartDate(userSubscription.getStartDate());
         newSubscription.setEndDate(userSubscription.getEndDate());
         var createdSubscription = userSubscriptionRepository.save(newSubscription);
@@ -82,9 +84,23 @@ public class UserSubscriptionServiceImpl implements UserSubscriptionService {
 
         existing.setStartDate(userSubscription.getStartDate());
         existing.setEndDate(userSubscription.getEndDate());
-        //existing.setIsActive(userSubscription.getIsActive());
 
         logger.info("User subscription updated: {}", userSubscription.getId());
+        return modelMapper.map(userSubscriptionRepository.save(existing), UserSubscriptionDto.class);
+    }
+
+    @Override
+    public UserSubscriptionDto updateToExpire(UUID id) throws NotFoundException {
+        UserSubscription existing = userSubscriptionRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("UserSubscription not found with id " + id));
+
+        var yesterday = LocalDate.now().minusDays(1);
+
+        existing.setEndDate(yesterday);
+        existing.setStartDate(yesterday.minusMonths(1));
+        System.out.println("Yesterday: " + yesterday);
+
+        logger.info("User subscription expired: {}", existing.getId());
         return modelMapper.map(userSubscriptionRepository.save(existing), UserSubscriptionDto.class);
     }
 

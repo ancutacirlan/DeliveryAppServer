@@ -39,6 +39,12 @@ public class UserSubscriptionController {
         return ResponseEntity.ok(updated);
     }
 
+    @PutMapping("/set/to/expire/{id}")
+    public ResponseEntity<UserSubscriptionDto> update(@PathVariable UUID id) throws NotFoundException {
+        UserSubscriptionDto updated = userSubscriptionService.updateToExpire(id);
+        return ResponseEntity.ok(updated);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<UserSubscriptionDto> getById(@PathVariable UUID id) throws NotFoundException {
         UserSubscriptionDto userSubscription = userSubscriptionService.getById(id);
